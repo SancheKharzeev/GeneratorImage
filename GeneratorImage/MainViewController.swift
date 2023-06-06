@@ -90,8 +90,13 @@ extension MainViewController {
     @objc func addToFavorite() {
         if let imageData = newImage.image?.pngData() {
             createItem(name: "\(imageName)", img: imageData)
+            print("5 image is MAX Limit")
         } else {
             print("error save image")
+        }
+        
+        while MainViewController.imageArray.count >= 6 {
+            MainViewController.imageArray.removeFirst()
         }
     }
 }
@@ -159,7 +164,7 @@ extension MainViewController: UITextFieldDelegate {
 extension MainViewController: ImageManagerDelegate {
     func didUpdateImage(_ image: Data) {
         DispatchQueue.main.async {
-            self.newImage.image = UIImage(data: image) // как сохранять файл картинки и потом его забирать
+            self.newImage.image = UIImage(data: image) // выводим картинку после загрузки, асинхронно
         }
     }
     
