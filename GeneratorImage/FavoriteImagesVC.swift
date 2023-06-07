@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FavoriteImagesVC: UIViewController {
+final class FavoriteImagesVC: UIViewController {
     
     let tableView: UITableView = {
         let tableview = UITableView()
@@ -37,7 +37,7 @@ class FavoriteImagesVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
-        print("\(MainViewController.imageArray.count) items in FavoriteVC")
+        print("\(MainViewController.imageArray.count) items in the Table")
     }
     
     override func viewWillLayoutSubviews() {

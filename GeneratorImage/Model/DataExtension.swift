@@ -12,6 +12,7 @@ extension MainViewController {
     func getAllItems() {
         do {
             MainViewController.imageArray = try context.fetch(ImageGenerated.fetchRequest())
+            MainViewController.imageMaxCount()
             print("get All item")
         }
         catch {

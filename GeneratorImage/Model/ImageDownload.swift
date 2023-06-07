@@ -12,7 +12,7 @@ protocol ImageManagerDelegate {
     func didFailWithError(error: Error)
 }
 
-class ImageDownload {
+final class ImageDownload {
     
     let api = "https://dummyimage.com/300x300/d9d5d9/1a1a1a.png&text="
     var delegate: ImageManagerDelegate?

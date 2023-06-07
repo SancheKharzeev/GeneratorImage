@@ -94,13 +94,17 @@ extension MainViewController {
         } else {
             print("error save image")
         }
-        
+        MainViewController.imageMaxCount()
+    }
+    
+    // MARK: imageMaxCount
+    static func imageMaxCount() {
         while MainViewController.imageArray.count >= 6 {
             MainViewController.imageArray.removeFirst()
         }
     }
 }
-    
+
 
 //MARK: - setting layouts
 extension MainViewController {
