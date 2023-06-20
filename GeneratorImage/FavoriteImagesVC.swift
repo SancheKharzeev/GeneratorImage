@@ -9,6 +9,7 @@ import UIKit
 
 final class FavoriteImagesVC: UIViewController {
     
+    //MARK: -  tableView
     let tableView: UITableView = {
         let tableview = UITableView()
         tableview.register(CustomTableViewCell.self, forCellReuseIdentifier: CustomTableViewCell.reuseID)
@@ -24,15 +25,13 @@ final class FavoriteImagesVC: UIViewController {
         tabBarItemVC.title = "Favorite"
         return tabBarItemVC
     }()
-    
-    
+        
     override func viewDidLoad() {
         view.backgroundColor = .white
         setupView()
         tableView.delegate = self
         tableView.dataSource = self
         tableView.reloadData()
-
     }
     
     override func viewWillAppear(_ animated: Bool) {

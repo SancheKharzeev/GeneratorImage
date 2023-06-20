@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E28D614F2A3EBE8C005A7D9F /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28D614E2A3EBE8C005A7D9F /* AlertController.swift */; };
 		E2A4B1012A2654E300FFDD5C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A4B1002A2654E300FFDD5C /* AppDelegate.swift */; };
 		E2A4B1032A2654E300FFDD5C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A4B1022A2654E300FFDD5C /* SceneDelegate.swift */; };
 		E2A4B1052A2654E300FFDD5C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A4B1042A2654E300FFDD5C /* MainViewController.swift */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E28D614E2A3EBE8C005A7D9F /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		E2A4B0FD2A2654E300FFDD5C /* GeneratorImage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeneratorImage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2A4B1002A2654E300FFDD5C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E2A4B1022A2654E300FFDD5C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -67,6 +69,7 @@
 		E2760D7E2A2B9751007D7FB1 /* CustomUI */ = {
 			isa = PBXGroup;
 			children = (
+				E28D614E2A3EBE8C005A7D9F /* AlertController.swift */,
 				E2A4B1232A273BDD00FFDD5C /* CustomButton.swift */,
 				E2A4B11F2A26643600FFDD5C /* NameTextField.swift */,
 				E2A4B1212A270F6100FFDD5C /* NewImage.swift */,
@@ -184,6 +187,7 @@
 				E2A4B10B2A2654E300FFDD5C /* GeneratorImage.xcdatamodeld in Sources */,
 				E2ADBBE42A290BB900D37EE8 /* CustomTableViewCell.swift in Sources */,
 				E2ADBBE22A290B1B00D37EE8 /* FavoriteImagesVC.swift in Sources */,
+				E28D614F2A3EBE8C005A7D9F /* AlertController.swift in Sources */,
 				E2A4B1242A273BDD00FFDD5C /* CustomButton.swift in Sources */,
 				E2A4B11D2A265FC900FFDD5C /* ImageGenerated+CoreDataClass.swift in Sources */,
 				E2ADBBE62A29F63B00D37EE8 /* DataExtension.swift in Sources */,

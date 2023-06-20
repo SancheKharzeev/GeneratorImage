@@ -17,6 +17,16 @@ final class MainViewController: UIViewController {
     
     var imageName = ""
     
+    let queue = DispatchQueue.global(qos: .utility)
+    
+    //MARK: - activityIndicator
+    let activityIndicator = {
+        let indicator = UIActivityIndicatorView()
+        indicator.style = .large
+        indicator.color = .white
+        return indicator
+    }()
+    
     //MARK: - nameTextField
     let nameTextField = NameTextField(placeholder: "Enter random word")
     
@@ -36,6 +46,9 @@ final class MainViewController: UIViewController {
         return tabBarItemVC
     }()
     
+   
+   
+    
     //MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +57,10 @@ final class MainViewController: UIViewController {
         nameTextField.delegate = self
         imageDownload.delegate = self
         getAllItems()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+       
     }
 }
 
@@ -66,6 +83,7 @@ extension MainViewController {
         view.addSubview(newImage)
         view.addSubview(favoriteButton)
         view.addSubview(searchButton)
+        view.addSubview(activityIndicator)
     }
     
     //MARK: Search Button action
@@ -73,6 +91,7 @@ extension MainViewController {
         searchButton.addTarget(self, action: #selector(searchButtonPressed), for: .touchUpInside)
     }
     @objc func searchButtonPressed() {
+        activityIndicator.startAnimating()
         nameTextField.endEditing(true)
         guard let word = nameTextField.text else { return nameTextField.placeholder = "no words here" }
         if word != "" {
@@ -127,6 +146,10 @@ extension MainViewController {
         favoriteButton.translatesAutoresizingMaskIntoConstraints = false
         favoriteButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         favoriteButton.topAnchor.constraint(equalTo: searchButton.bottomAnchor, constant: 30).isActive = true
+        
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        activityIndicator.topAnchor.constraint(equalTo: favoriteButton.bottomAnchor, constant: 30).isActive = true
     }
 }
 
@@ -140,7 +163,7 @@ extension MainViewController: UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         // метод передаст введенные слова из textField в класс imageDownload.fetchURL после окончания ввода текста
-        
+        activityIndicator.startAnimating()
         if let words = nameTextField.text {
             let formattedString = words.replacingOccurrences(of: " ", with: "+") // заменяем пробелы в тексте на символ
             imageDownload.fetchURL(words: formattedString)
@@ -164,14 +187,14 @@ extension MainViewController: UITextFieldDelegate {
         searchButton.isHidden = false
     }
 }
-//MARK: - ImageManagerDelegate
+//MARK: - ImageManagerDelegate 
 extension MainViewController: ImageManagerDelegate {
-    func didUpdateImage(_ image: Data) {
-        DispatchQueue.main.async {
-            self.newImage.image = UIImage(data: image) // выводим картинку после загрузки, асинхронно
-        }
-    }
     
+    func didUpdateImage(_ image: Data) {
+        
+        self.newImage.image = UIImage(data: image) // выводим картинку после загрузки
+        self.activityIndicator.stopAnimating()
+    }
     func didFailWithError(error: Error) {
         print(error)
     }
