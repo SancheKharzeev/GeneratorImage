@@ -16,3 +16,5 @@
 
 Для генерации картинок можно использовать сервис https://dummyimage.com/
 Пример запроса:https://dummyimage.com/500x500&text=some+text где "500x500" размер картинки (выбрать какой-то размер и зафиксировать), а "text=" запрос от пользователя.
+
+![](https://github.com/SancheKharzeev/GeneratorImage/blob/main/ezgif.com-video-to-gif.gif)
